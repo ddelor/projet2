@@ -1,0 +1,20 @@
+{% extends 'FrontBundle::base.html.twig' %}
+
+{% block title %}Détails du produit{% endblock %}
+
+{% block main %}
+<main>
+        <section>
+            <h1>Détail Produit :</h1>
+            {#{ dump(item) }#}
+            <img class="item" src="{{ asset('bundles/front/images/item/' ~ item.img) }}" />
+            <div class="itemTexte">
+                <h2>{{ item.name }}</h2>
+                <h3>{{ item.category.type }}</h3>
+                <p>{{ item.description }}</p>
+            </div>
+            <div class="clear"></div>
+            <p><a href="{{ path('item') }}">Retour au catalogue de produits</a></p>
+	</section>
+</main>
+{% endblock %}

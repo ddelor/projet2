@@ -1,0 +1,21 @@
+<!-- header -->
+<header>
+        <!-- logo -->
+        <div class="logo"><a href="{{ path('index') }}"><img src="{{ asset('bundles/front/images/logo.png') }}" alt="<em>Art.space</em>"></a></div>
+        <!-- navigation principale -->
+        <nav>
+                <ul>
+                        <li class="menu"><a href="#">menu</a></li>
+                        <!--<li class="nav_mobile invisible"><a href="tour.html">tour</a></li>
+                        <li class="nav_mobile invisible"><a href="#">templates</a></li>
+                        <li class="nav_mobile invisible"><a href="#">developers</a></li>
+                        <li class="nav_mobile invisible"><a href="price.html">pricing</a></li>
+                        <li class="nav_mobile invisible"><a href="#">login</a></li>-->
+                        <li class="nav_mobile invisible"><a href="{{ path('index') }}">accueil</a></li>
+                        <li class="nav_mobile invisible"><a href="{{ path('item') }}">catalogue</a></li>
+                        <li class="nav_mobile invisible"><a href="{{ path('index') }}">mon compte</a></li>
+                        <li class="nav_mobile invisible"><a href="{{ path('index') }}">mon panier</a></li>
+                </ul>
+        </nav>
+        <div class="clear"></div>
+</header>

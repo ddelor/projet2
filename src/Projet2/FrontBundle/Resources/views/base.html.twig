@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="fr"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="fr"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="fr"> <![endif]-->
+<!--[if gt IE 8]> <!--> <html class="no-js" lang="fr"> <!--<![endif]-->
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <!--[if lt IE 9]>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+	<![endif]-->
+	
+	<link rel="stylesheet" type="text/css" href="{{ asset('bundles/front/css/reset.css') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('bundles/front/css/style.css') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('bundles/front/css/media.css') }}" />
+	<link rel="icon" type="image/png" href="{{ asset('bundles/front/images/favicon.png') }}" />
+	<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="{{ asset('bundles/front/images/favicon.ico') }}" /><![endif]-->
+    </head>
+    <body>
+        {% block body %}
+            {% block header %}
+                {% include 'FrontBundle::Nav/header.html.twig' %}
+            {% endblock %}
+            {% block main %}{% endblock %}
+            {% block footer %}
+                {% include 'FrontBundle::Nav/footer.html.twig' %}
+            {% endblock %}
+        {% endblock %}
+        {% block javascripts %}	
+            <script src="{{ asset('bundles/front/js/jquery-1.10.2.min.js') }}"></script>
+            <script src="{{ asset('bundles/front/js/respond.js') }}"></script>
+            <script src="{{ asset('bundles/front/js/global.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

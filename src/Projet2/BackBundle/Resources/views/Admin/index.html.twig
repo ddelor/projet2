@@ -1,0 +1,10 @@
+{% extends 'FrontBundle::base.html.twig' %}
+
+{% block title %}Bienvenue dans l'administration de votre site{% endblock %}
+
+{% block main %}
+<main>
+    Hello !
+    <a href="{{ path('logout') }}">Se déconnecter</a>
+</main>
+{% endblock %}

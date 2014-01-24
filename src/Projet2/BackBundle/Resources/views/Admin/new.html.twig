@@ -1,0 +1,31 @@
+<h1>Formulaire de contact</h1>
+    
+    {# pour afficher tous les champs par défaut du formulaire : #}
+    {#{ form(formulaire) }#}
+    
+    {# pour afficher les champs souhaités dans l'ordre et la mise en forme souhaités : #}
+    <form action="{#{ path('') }#}" method="POST" id="contact_form" novalidate>
+        <p>
+            {{ form_errors(formulaire.username) }}
+            {{ form_label(formulaire.username, 'Nom :') }}
+            {{ form_widget(formulaire.username,
+                {'attr' : {'placeholder' : 'Saisissez votre nom'}}
+            ) }}
+        </p>
+        <p>
+            {{ form_errors(formulaire.email) }}
+            {{ form_label(formulaire.email, 'Email :') }}
+            {{ form_widget(formulaire.email,
+                {'attr' : {'placeholder' : 'Saisissez votre Email'}}
+            ) }}
+        </p>
+        <p>
+            {{ form_errors(formulaire.password) }}
+            {{ form_label(formulaire.password, 'Mot de passe :') }}
+            {{ form_widget(formulaire.password,
+                {'attr' : {'placeholder' : 'Saisissez votre mot de passe'}}
+            ) }}
+        </p>
+        <input type="submit" value="Envoyer" class="symfony-button-grey" />
+        {{ form_widget(formulaire._token) }}
+    </form>

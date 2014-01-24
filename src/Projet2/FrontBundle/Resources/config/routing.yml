@@ -1,0 +1,7 @@
+front_index:
+    resource:  '@FrontBundle/Controller/IndexController.php'
+    type: annotation
+
+front_item:
+    resource:  '@FrontBundle/Controller/ItemController.php'
+    type: annotation
