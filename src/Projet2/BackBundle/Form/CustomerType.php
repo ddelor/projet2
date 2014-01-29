@@ -16,8 +16,7 @@ class CustomerType extends AbstractType
     {
         $builder
             ->add('username')
-            ->add('salt')
-            ->add('password')
+            ->add('password', 'password')
             ->add('email')
             ->add('lastName')
             ->add('firstName')
@@ -26,8 +25,11 @@ class CustomerType extends AbstractType
             ->add('zip')
             ->add('city')
             ->add('phone')
-            ->add('isActive')
-            ->add('civil')
+            ->add('civil', 'entity', array(
+                'class' => 'BackBundle:Civil',
+                'property' => 'type',
+                'empty_value' => '',
+            ))
         ;
     }
     

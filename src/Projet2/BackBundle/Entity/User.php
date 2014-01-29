@@ -3,6 +3,7 @@
 namespace Projet2\BackBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -26,6 +27,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=100, unique=true)
+     * @Assert\NotBlank(message="Ce champ est obligatoire.")
      */
     private $username;
 
@@ -40,6 +42,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=32)
+     * @Assert\NotBlank(message="Ce champ est obligatoire.")
      */
     private $password;
 
@@ -47,6 +50,8 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=150, unique=true)
+     * @Assert\NotBlank(message="Ce champ est obligatoire.")
+     * @Assert\Email(message="Votre mail n'est pas valide.")
      */
     private $email;
 
@@ -63,11 +68,12 @@ class User implements UserInterface
      * @ORM\Column(name="isActive", type="boolean")
      */
     private $isActive;
+    
+    
 
     public function __construct()
     {
-//      $this->roles = array();
-      $this->roles = array('ROLE_ADMIN');
+      $this->roles = array('ROLE_USER');
       $this->isActive = true;
       $this->salt = sha1('');
     }
@@ -103,19 +109,6 @@ class User implements UserInterface
     public function getUsername()
     {
         return $this->username;
-    }
-
-    /**
-     * Set salt
-     *
-     * @param string $salt
-     * @return User
-     */
-    public function setSalt($salt)
-    {
-        $this->salt = $salt;
-
-        return $this;
     }
 
     /**
@@ -222,5 +215,202 @@ class User implements UserInterface
     
     public function eraseCredentials()
     {
+    }
+
+    /**
+     * Set lastName
+     *
+     * @param string $lastName
+     * @return User
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * Get lastName
+     *
+     * @return string 
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * Set firstName
+     *
+     * @param string $firstName
+     * @return User
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * Get firstName
+     *
+     * @return string 
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * Set address1
+     *
+     * @param string $address1
+     * @return User
+     */
+    public function setAddress1($address1)
+    {
+        $this->address1 = $address1;
+
+        return $this;
+    }
+
+    /**
+     * Get address1
+     *
+     * @return string 
+     */
+    public function getAddress1()
+    {
+        return $this->address1;
+    }
+
+    /**
+     * Set address2
+     *
+     * @param string $address2
+     * @return User
+     */
+    public function setAddress2($address2)
+    {
+        $this->address2 = $address2;
+
+        return $this;
+    }
+
+    /**
+     * Get address2
+     *
+     * @return string 
+     */
+    public function getAddress2()
+    {
+        return $this->address2;
+    }
+
+    /**
+     * Set zip
+     *
+     * @param string $zip
+     * @return User
+     */
+    public function setZip($zip)
+    {
+        $this->zip = $zip;
+
+        return $this;
+    }
+
+    /**
+     * Get zip
+     *
+     * @return string 
+     */
+    public function getZip()
+    {
+        return $this->zip;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     * @return User
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string 
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     * @return User
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string 
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set civil
+     *
+     * @param \Projet2\BackBundle\Entity\Civil $civil
+     * @return User
+     */
+    public function setCivil(\Projet2\BackBundle\Entity\Civil $civil = null)
+    {
+        $this->civil = $civil;
+
+        return $this;
+    }
+
+    /**
+     * Get civil
+     *
+     * @return \Projet2\BackBundle\Entity\Civil 
+     */
+    public function getCivil()
+    {
+        return $this->civil;
+    }
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     * @return User
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+
+        return $this;
     }
 }

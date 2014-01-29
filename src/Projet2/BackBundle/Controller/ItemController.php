@@ -21,7 +21,7 @@ class ItemController extends Controller
     /**
      * Lists all Item entities.
      *
-     * @Route("/", name="item")
+     * @Route("/", name="admin_item")
      * @Method("GET")
      * @Template()
      */

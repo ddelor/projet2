@@ -6,15 +6,10 @@
         <nav>
                 <ul>
                         <li class="menu"><a href="#">menu</a></li>
-                        <!--<li class="nav_mobile invisible"><a href="tour.html">tour</a></li>
-                        <li class="nav_mobile invisible"><a href="#">templates</a></li>
-                        <li class="nav_mobile invisible"><a href="#">developers</a></li>
-                        <li class="nav_mobile invisible"><a href="price.html">pricing</a></li>
-                        <li class="nav_mobile invisible"><a href="#">login</a></li>-->
                         <li class="nav_mobile invisible"><a href="{{ path('index') }}">accueil</a></li>
                         <li class="nav_mobile invisible"><a href="{{ path('item') }}">catalogue</a></li>
-                        <li class="nav_mobile invisible"><a href="{{ path('index') }}">mon compte</a></li>
-                        <li class="nav_mobile invisible"><a href="{{ path('index') }}">mon panier</a></li>
+                        <li class="nav_mobile invisible"><a href="{{ path('user') }}">mon compte</a></li>
+                        <li class="nav_mobile invisible"><a href="{{ path('panier') }}">mon panier</a></li>
                 </ul>
         </nav>
         <div class="clear"></div>

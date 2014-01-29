@@ -6,6 +6,11 @@ security:
             algorithm:        sha1
             encode_as_base64: false
             iterations:       1
+#        Projet2\BackBundle\Entity\Customer: plaintext
+#        Projet2\BackBundle\Entity\Customer:
+#            algorithm:        sha1
+#            encode_as_base64: false
+#            iterations:       1
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
@@ -19,11 +24,18 @@ security:
 #                users:
 #                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
 #                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+#        second:
+#            entity: { class: BackBundle:Customer, property: username }
 
     firewalls:
          dev:
              pattern:  ^/(_(profiler|wdt)|css|images|js)/
              security: false
+         
+#         secured_area:
+#            pattern:    ^/admin
+#            http_basic:
+#                realm: "Veuillez vous authentifier"
              
          main:
               pattern:   ^/
@@ -35,7 +47,22 @@ security:
               logout:
                   path:   logout
                   target: /
+                  
+#         second:
+#             pattern:   ^/
+#             anonymous: true
+#             provider:  second
+#             form_login:
+#                 login_path: login_customer
+#                 check_path: login_check
+#             logout:
+#                 path:   logout
+#                 target: /
+
+
 
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: ^/, roles: ROLE_USER }
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

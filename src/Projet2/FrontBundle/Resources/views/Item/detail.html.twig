@@ -12,8 +12,17 @@
                 <h2>{{ item.name }}</h2>
                 <h3>{{ item.category.type }}</h3>
                 <p>{{ item.description }}</p>
+                <h3>{{ item.price }} &euro;</h3>
             </div>
             <div class="clear"></div>
+            <form method="POST" action="{{ path('panier_add', {'id' : item.id}) }}">
+                <!-- <input type="hidden" value="{#{ item.id }#}" name="id">-->
+                <label for="qty">Quantité :</label>
+                <input type="number" name="qty" value="1">
+                <input type="submit" value="Ajouter au panier">
+            </form>
+            <p>&nbsp</p>
+            <p>&nbsp</p>
             <p><a href="{{ path('item') }}">Retour au catalogue de produits</a></p>
 	</section>
 </main>

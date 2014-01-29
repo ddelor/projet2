@@ -20,4 +20,14 @@ class ItemRepository extends EntityRepository
                         ->getResult();
         return $result;
     }
+    
+    public function loadCategoryItem($id) {
+        $result = $this ->createQueryBuilder('i')
+                        ->select('i')
+                        ->where('i.category = :id')
+                        ->setParameter('id', $id)
+                        ->getQuery()
+                        ->getResult();
+        return $result;
+    }
 }

@@ -1,0 +1,72 @@
+{% extends 'FrontBundle::base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block main %}
+<main>
+        <section>
+            <h1>Remplissez ce formulaire pour créer votre compte client</h1>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <form action="{#{ path('customer') }#}" method="POST" id="contact_form" novalidate>
+                <p>
+                    {{ form_errors(formulaire.username) }}
+                    {{ form_label(formulaire.username, 'Login :') }}
+                    {{ form_widget(formulaire.username) }}
+                </p>
+                <p>
+                    {{ form_errors(formulaire.password) }}
+                    {{ form_label(formulaire.password, 'Mot de passe :') }}
+                    {{ form_widget(formulaire.password) }}
+                </p>
+                <p>
+                    {{ form_errors(formulaire.email) }}
+                    {{ form_label(formulaire.email, 'Email :') }}
+                    {{ form_widget(formulaire.email) }}
+                </p>
+                <p>
+                    {{ form_errors(formulaire.civil) }}
+                    {{ form_label(formulaire.civil, 'Civilité :') }}
+                    {{ form_widget(formulaire.civil) }}
+                </p>
+                <p>
+                    {{ form_errors(formulaire.lastName) }}
+                    {{ form_label(formulaire.lastName, 'Nom :') }}
+                    {{ form_widget(formulaire.lastName) }}
+                </p>
+                <p>
+                    {{ form_errors(formulaire.firstName) }}
+                    {{ form_label(formulaire.firstName, 'Prénom :') }}
+                    {{ form_widget(formulaire.firstName) }}
+                </p>
+                <p>
+                    {{ form_errors(formulaire.address1) }}
+                    {{ form_label(formulaire.address1, 'N°, Voie :') }}
+                    {{ form_widget(formulaire.address1) }}
+                </p>
+                <p>
+                    {{ form_errors(formulaire.address2) }}
+                    {{ form_label(formulaire.address2, 'Complément :') }}
+                    {{ form_widget(formulaire.address2) }}
+                </p>
+                <p>
+                    {{ form_errors(formulaire.zip) }}
+                    {{ form_label(formulaire.zip, 'Code postal :') }}
+                    {{ form_widget(formulaire.zip) }}
+                </p>
+                <p>
+                    {{ form_errors(formulaire.city) }}
+                    {{ form_label(formulaire.city, 'Ville :') }}
+                    {{ form_widget(formulaire.city) }}
+                </p>
+                <p>
+                    {{ form_errors(formulaire.phone) }}
+                    {{ form_label(formulaire.phone, 'Téléphone :') }}
+                    {{ form_widget(formulaire.phone) }}
+                </p>
+                <input type="submit" value="Envoyer" class="symfony-button-grey" />
+                {{ form_widget(formulaire._token) }}
+            </form>
+	</section>
+</main>
+{% endblock %}

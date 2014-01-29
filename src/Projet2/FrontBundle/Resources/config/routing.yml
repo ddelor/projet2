@@ -5,3 +5,11 @@ front_index:
 front_item:
     resource:  '@FrontBundle/Controller/ItemController.php'
     type: annotation
+
+front_user:
+    resource:  '@FrontBundle/Controller/UserController.php'
+    type: annotation
+
+front_cart:
+    resource:  '@FrontBundle/Controller/CartController.php'
+    type: annotation

@@ -4,7 +4,7 @@
 
 {% block main %}
 <main>
-    <h1>Category</h1>
+    <h1>User</h1>
 
     <table class="record_properties">
         <tbody>
@@ -13,24 +13,32 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Type</th>
-                <td>{{ entity.type }}</td>
+                <th>Username</th>
+                <td>{{ entity.username }}</td>
             </tr>
             <tr>
-                <th>Description</th>
-                <td>{{ entity.description }}</td>
+                <th>Password</th>
+                <td>{{ entity.password }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ entity.email }}</td>
+            </tr>
+            <tr>
+                <th>Isactive</th>
+                <td>{{ entity.isActive }}</td>
             </tr>
         </tbody>
     </table>
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('category') }}">
+        <a href="{{ path('admin_user') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('category_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('admin_user_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>

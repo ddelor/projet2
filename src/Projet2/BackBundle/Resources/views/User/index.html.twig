@@ -4,30 +4,34 @@
 
 {% block main %}
 <main>
-    <h1>Category list</h1>
+    <h1>User list</h1>
 
     <table class="records_list">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Type</th>
-                <th>Description</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Isactive</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('category_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.type }}</td>
-                <td>{{ entity.description }}</td>
+                <td><a href="{{ path('admin_user_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.username }}</td>
+                <td>{{ entity.password }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.isActive }}</td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('category_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('admin_user_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('category_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('admin_user_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
                 </td>
@@ -38,7 +42,7 @@
 
         <ul>
         <li>
-            <a href="{{ path('category_new') }}">
+            <a href="{{ path('admin_user_new') }}">
                 Create a new entry
             </a>
         </li>

@@ -4,7 +4,13 @@
 
 {% block main %}
 <main>
-    Hello !
+    <h1>Bienvenue sur votre interface d'administration</h1>
+    <h2>Cliquez sur les liens ci-dessous pour visualiser<br>et modifier les rubriques</h2>
+    <div class="category_menu"
+    <p><a href="{{ path('admin_user') }}">Clients</a></p>
+    <p><a href="{{ path('admin_category') }}">Catégories de produits</a></p>
+    <p><a href="{{ path('admin_item') }}">Produits</a></p>
     <a href="{{ path('logout') }}">Se déconnecter</a>
+    </div>
 </main>
 {% endblock %}

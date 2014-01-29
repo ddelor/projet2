@@ -19,6 +19,7 @@ class ItemController extends Controller
 {
 
     /**
+     * Affiche un menu des catégories
      * Affiche tous les produits classés par catégorie
      *
      * @Route("/", name="item")
@@ -26,10 +27,18 @@ class ItemController extends Controller
      */
     public function indexAction()
     {        
+        // sélection de toutes les catégories
+        $emCategory = $this->getDoctrine()->getRepository('BackBundle:Category');
+        $category = $emCategory->findAll();
+        
+        // sélection des tous les produits classés par catégorie
         $emItem = $this->getDoctrine()->getRepository('BackBundle:Item');
         $item = $emItem->loadItem();
         
-        return array('item' => $item);
+        return array(
+                'category' => $category,
+                'item' => $item
+                );
     }
     
     /**
@@ -44,6 +53,25 @@ class ItemController extends Controller
         $item = $emItem->find($id);
         
         return array('item' => $item);
+    }
+    
+    /**
+     * Affiche tous les produits d'une seule catégorie
+     * 
+     * @Route("/category/{id}", name="item_category")
+     * @Template()
+     */
+    public function categoryAction($id) {
+        $emItem = $this->getDoctrine()->getRepository('BackBundle:Item');
+        $item = $emItem->loadCategoryItem($id);
+        
+        $emCategory = $this->getDoctrine()->getRepository('BackBundle:Category');
+        $category = $emCategory->find($id);
+        
+        return array(
+                'item' => $item,
+                'category' => $category
+                );
     }
     
 }

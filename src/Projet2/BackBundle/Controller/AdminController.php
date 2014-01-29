@@ -10,10 +10,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Projet2\BackBundle\Entity\User;
 use Projet2\BackBundle\Form\UserType;
 
+
+/**
+ * Admin controller.
+ *
+ * @Route("/admin")
+ */
 class AdminController extends Controller
 {
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/", name="admin")
      * @Template("BackBundle:Admin:index.html.twig")
      */
     public function indexAction()
@@ -53,7 +59,7 @@ class AdminController extends Controller
     }
     
     /**
-     * @Route("/admin/new", name="new")
+     * @Route("/new", name="new")
      * @Template("BackBundle:Admin:new.html.twig")
      */
     public function newAction(Request $request) {
@@ -77,5 +83,17 @@ class AdminController extends Controller
 
         return array('formulaire' => $form->createView());
     }
+    
+    /**
+     * @Route("/logout", name="admin_logout")
+     * @Template("BackBundle:Admin:logout.html.twig")
+     */
+    public function logoutAction() {
+//        header('WWW-Authenticate: Basic realm="protected area"');
+//        header('HTTP/1.0 401 Unauthorized');
+
+        return array();
+    }
+    
     
 }

@@ -6,17 +6,10 @@
 <main>
         <section>
             <h1>Bienvenue sur le site de Art.Space</h1>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
             <h2><a href="{{ path('item') }}">Voir notre catalogue complet</a></h2>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <h3>Si vous êtes déjà client, connectez-vous.</h3>
-            <p>&nbsp;</p>
-            <h3>Si vous n'êtes pas encore client, inscrivez-vous.</h3>
             <div class="clear"></div>
-            <h1>Le produit du mois :</h1>
-            {#{ dump(item) }#}
+            <h2>Un de nos produits les plus vendus :</h2>
+            {#{ dump(id) }#}
             <img class="item" src="{{ asset('bundles/front/images/item/' ~ item.img) }}" />
             <div class="itemTexte">
                 <h2>{{ item.name }}</h2>
@@ -24,6 +17,12 @@
                 <p>{{ item.description }}</p>
             </div>
             <div class="clear"></div>
+            {% if is_granted('ROLE_USER') %}
+                <p><a href="{{ path('logout') }}">Se déconnecter</a></p>
+            {% else %}
+                <h3>Si vous êtes déjà client, <a href="{{ path('login') }}">connectez-vous</a>.</h3>
+                <h3>Si vous n'êtes pas encore client, <a href="{{ path('inscription') }}">inscrivez-vous.</a></h3>
+            {% endif %}
 	</section>
 </main>
 {% endblock %}

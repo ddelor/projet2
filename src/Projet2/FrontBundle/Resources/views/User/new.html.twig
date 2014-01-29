@@ -1,0 +1,30 @@
+{% extends 'FrontBundle::base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block main %}
+<main>
+        <section>
+            <h1>Remplissez ce formulaire pour créer votre compte client</h1>
+            <form action="{#{ path('user') }#}" method="POST" id="contact_form" novalidate>
+                <p>
+                    {{ form_errors(formulaire.username) }}
+                    {{ form_label(formulaire.username, 'Login :') }}
+                    {{ form_widget(formulaire.username) }}
+                </p>
+                <p>
+                    {{ form_errors(formulaire.password) }}
+                    {{ form_label(formulaire.password, 'Mot de passe :') }}
+                    {{ form_widget(formulaire.password) }}
+                </p>
+                <p>
+                    {{ form_errors(formulaire.email) }}
+                    {{ form_label(formulaire.email, 'Email :') }}
+                    {{ form_widget(formulaire.email) }}
+                </p>
+                <input type="submit" value="Envoyer" class="symfony-button-grey" />
+                {{ form_widget(formulaire._token) }}
+            </form>
+	</section>
+</main>
+{% endblock %}

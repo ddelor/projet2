@@ -1,0 +1,59 @@
+{% extends 'FrontBundle::base.html.twig' %}
+
+{% block title %}Votre panier{% endblock %}
+
+{% block main %}
+<main>
+        <section>
+            <h1>Votre Panier</h1>
+            
+            {% if panier == null %}
+                <p>Vous n'avez aucun produit dans votre panier</p>
+                <p><a href="{{ path('item') }}">Voir notre catalogue complet</a></p>
+                
+            {% elseif panier.item is empty %}
+                <p>Vous n'avez aucun produit dans votre panier</p>
+                <p><a href="{{ path('item') }}">Voir notre catalogue complet</a></p>
+                
+            {% else %}
+                {#{ dump(panier.item) }#}
+                <!-- <form method="POST" action="{#{ path('panier_modify') }#}"> -->
+                    <table class="panier">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Prix unitaire</th>
+                            <th>Prix total</th>
+                            <th>Quantité</th>
+                            <th>Plus</th>
+                            <th>Moins</th>
+                            <th>Supprimer</th>
+                        </tr>
+                    {% for value in panier.item %}
+                        <tr>
+                            <td>{{ value.name }}</td>
+                            <td>{{ value.priceU }} &euro;</td>
+                            <td>{{ value.priceT }} &euro;</td>
+                            <!-- <td><input type="number" name="qty[]" value="{{ value.qty }}"></td> -->
+                            <td>{{ value.qty }}</td>
+                            <td><a href="{{ path('panier_plus', {'id' : value.id}) }}">+</a></td>
+                            <td><a href="
+                                   {% if value.qty >= 2 %}
+                                        {{ path('panier_moins', {'id' : value.id}) }}
+                                   {% else %}
+                                        {{ path('panier_remove', {'id' : value.id}) }}
+                                   {% endif %}
+                                        ">-</a></td>
+                            <td><a href="{{ path('panier_remove', {'id' : value.id}) }}">X</a></td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                    <br><br>
+                    <!-- <input type="submit" value="Mettre à jour le panier">
+                </form> -->
+                <br><br>
+                <p><a href="{{ path('item') }}">Retour au catalogue complet</a></p>
+            {% endif %}
+                
+	</section>
+</main>
+{% endblock %}

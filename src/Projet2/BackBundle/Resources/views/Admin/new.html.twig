@@ -1,9 +1,5 @@
 <h1>Formulaire de contact</h1>
-    
-    {# pour afficher tous les champs par défaut du formulaire : #}
-    {#{ form(formulaire) }#}
-    
-    {# pour afficher les champs souhaités dans l'ordre et la mise en forme souhaités : #}
+
     <form action="{#{ path('') }#}" method="POST" id="contact_form" novalidate>
         <p>
             {{ form_errors(formulaire.username) }}

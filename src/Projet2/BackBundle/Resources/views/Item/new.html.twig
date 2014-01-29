@@ -1,6 +1,9 @@
-{% extends '::base.html.twig' %}
+{% extends 'FrontBundle::base.html.twig' %}
 
-{% block body -%}
+{% block title %}Bienvenue dans l'administration de votre site{% endblock %}
+
+{% block main %}
+<main>
     <h1>Item creation</h1>
 
     {{ form(form) }}
@@ -12,4 +15,5 @@
         </a>
     </li>
 </ul>
+</main>
 {% endblock %}

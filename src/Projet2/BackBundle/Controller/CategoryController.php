@@ -13,7 +13,7 @@ use Projet2\BackBundle\Form\CategoryType;
 /**
  * Category controller.
  *
- * @Route("/category")
+ * @Route("/admin/category")
  */
 class CategoryController extends Controller
 {
@@ -21,7 +21,7 @@ class CategoryController extends Controller
     /**
      * Lists all Category entities.
      *
-     * @Route("/", name="category")
+     * @Route("/", name="admin_category")
      * @Method("GET")
      * @Template()
      */

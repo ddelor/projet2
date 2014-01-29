@@ -1,0 +1,12 @@
+{% extends 'FrontBundle::base.html.twig' %}
+
+{% block title %}Espace perso{% endblock %}
+
+{% block main %}
+<main>
+        <section>
+            <h1>Votre compte</h1>
+            {{ dump(user) }}
+	</section>
+</main>
+{% endblock %}

@@ -2,6 +2,18 @@ back_admin:
     resource:  '@BackBundle/Controller/AdminController.php'
     type: annotation
 
+back_user:
+    resource:  '@BackBundle/Controller/UserController.php'
+    type: annotation
+
+back_category:
+    resource:  '@BackBundle/Controller/CategoryController.php'
+    type: annotation
+
+back_item:
+    resource:  '@BackBundle/Controller/ItemController.php'
+    type: annotation
+
 login:
      pattern:   /login
      defaults:  { _controller: BackBundle:Security:login }

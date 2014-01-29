@@ -12,17 +12,22 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 class IndexController extends Controller
 {
     /**
+     * Affiche un produit aléatoire de la table Item
+     * 
      * @Route("/", name="index")
      * @Template("FrontBundle:Index:index.html.twig")
      */
     public function indexAction()
     {  
-        // Affiche un produit aléatoire
-        
         $emItem = $this->getDoctrine()->getRepository('BackBundle:Item');
-        $item = $emItem->find(1);
+        $itemList = $emItem->findAll();
+        $itemLength = count($itemList);
+        $id = rand(0, ($itemLength - 1));
+        $item = $emItem->find($id);
         
-        return array('item' => $item);
+        return array(
+                'item' => $item
+                );
     }
         
 }

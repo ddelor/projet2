@@ -1,6 +1,9 @@
-{% extends '::base.html.twig' %}
+{% extends 'FrontBundle::base.html.twig' %}
 
-{% block body -%}
+{% block title %}Bienvenue dans l'administration de votre site{% endblock %}
+
+{% block main %}
+<main>
     <h1>Item list</h1>
 
     <table class="records_list">
@@ -8,6 +11,7 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>Category</th>
                 <th>Description</th>
                 <th>Price</th>
                 <th>Stock</th>
@@ -20,6 +24,7 @@
             <tr>
                 <td><a href="{{ path('item_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
+                <td>{{ entity.category.type }}</td>
                 <td>{{ entity.description }}</td>
                 <td>{{ entity.price }}</td>
                 <td>{{ entity.stock }}</td>
@@ -46,4 +51,5 @@
             </a>
         </li>
     </ul>
+</main>
     {% endblock %}

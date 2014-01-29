@@ -11,16 +11,10 @@ main {
     margin-left: 12%;
     margin-right: 12%;
     padding-top:15em;
+    padding-bottom:30em;
 }
-.item {
-    width: 15em;
-    margin-top: 2em;
-    margin-bottom: 1em;
-    float: left;
-}
-.itemTexte {
-    margin-top: 2em;
-    margin-left: 17em;
+main p {
+    padding-bottom: .4em;
 }
 
 
@@ -70,9 +64,11 @@ header nav a:hover {
 
 footer {
 	width: 100%;
-	height: 49.5em;
+	height: 19em;
 	background-color: #1c1c1c;
-	margin-top: 8.5em;
+        position: fixed;
+        bottom: 0;
+        left: 0;
 }
 footer > ul {
 	margin-left: 12%;
@@ -93,7 +89,7 @@ footer .titre {
 	text-transform: uppercase;
 	font-size: 1.2em;
 	margin-bottom: 2.3em;
-	margin-top: 7.3em;
+	margin-top: 3em;
 }
 footer a:link,
 footer a:visited {
@@ -182,10 +178,10 @@ footer p {
 
 /** ----------------------------- global sections ----------------------------- **/
 
-section > ul {
+/*section > ul {
 	margin-left: 12%;
 	margin-right: 12%;
-}
+}*/
 .colonne_2 > li {
 	float: left;
 	width: 47%;
@@ -519,16 +515,19 @@ h1 {
 	font-size: 2.7em;
 	color: #1c1c1c;
 	text-transform: uppercase;
+        padding-bottom: 1em;
 }
 h2 {
 	font-size: 2.3em;
 	color: #1c1c1c;
 	text-transform: uppercase;
+        padding-bottom: .5em;
 }
 h3 {
 	font-size: 1.5em;
 	color: #1c1c1c;
 	text-transform: uppercase;
+        padding-bottom: .3em;
 }
 .filet_inf_centre {
 	border-bottom: 2px solid #1c1c1c;
@@ -758,4 +757,43 @@ blockquote {
 }
 #position .free > p {
 	padding-top: 9px;
+}
+
+/** ----------------------------- ITEM ----------------------------- **/
+.item {
+    width: 15em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    float: left;
+}
+.itemTexte {
+    margin-top: 2em;
+    margin-left: 17em;
+}
+.category_menu {
+    display: inline-block;
+}
+.category_menu a {
+    display: block;
+    padding: 1.5em 3em 01em 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #d3d3d3;
+}
+
+
+/** ----------------------------- PANIER ----------------------------- **/
+
+.panier {
+    font-size: 1.2em;
+}
+.panier th,
+.panier td {
+    padding-bottom: 1em;
+    padding-right: 2em;
+    text-align: left;
+}
+.panier th {
+    font-weight: bold;
 }
