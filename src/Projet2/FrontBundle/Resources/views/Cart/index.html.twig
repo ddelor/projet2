@@ -16,24 +16,22 @@
                 <p><a href="{{ path('item') }}">Voir notre catalogue complet</a></p>
                 
             {% else %}
-                {#{ dump(panier.item) }#}
-                <!-- <form method="POST" action="{#{ path('panier_modify') }#}"> -->
+                {#{ dump(panier) }#}
+                <form method="POST" action="{{ path('submit') }}">
                     <table class="panier">
                         <tr>
                             <th>Produit</th>
                             <th>Prix unitaire</th>
-                            <th>Prix total</th>
                             <th>Quantité</th>
                             <th>Plus</th>
                             <th>Moins</th>
                             <th>Supprimer</th>
+                            <th>Prix total</th>
                         </tr>
                     {% for value in panier.item %}
-                        <tr>
-                            <td>{{ value.name }}</td>
+                        <tr class="silver">
+                            <td><a href="{{ path('item_detail', {'id' : value.id}) }}">{{ value.name }}</a></td>
                             <td>{{ value.priceU }} &euro;</td>
-                            <td>{{ value.priceT }} &euro;</td>
-                            <!-- <td><input type="number" name="qty[]" value="{{ value.qty }}"></td> -->
                             <td>{{ value.qty }}</td>
                             <td><a href="{{ path('panier_plus', {'id' : value.id}) }}">+</a></td>
                             <td><a href="
@@ -44,12 +42,22 @@
                                    {% endif %}
                                         ">-</a></td>
                             <td><a href="{{ path('panier_remove', {'id' : value.id}) }}">X</a></td>
+                            <td>{{ value.priceT }} &euro;</td>
                         </tr>
                     {% endfor %}
+                        <tr class="bold">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>TOTAL :</td>
+                            <td>{{ panier.total }}&euro;</td>
+                        </tr>
                     </table>
-                    <br><br>
-                    <!-- <input type="submit" value="Mettre à jour le panier">
-                </form> -->
+                    <input type="submit" value="Valider la commande">
+                </form>
+                    
                 <br><br>
                 <p><a href="{{ path('item') }}">Retour au catalogue complet</a></p>
             {% endif %}

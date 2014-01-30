@@ -4,15 +4,18 @@
 
 {% block main %}
 <main>
-    <h1>Customer creation</h1>
+    <h1>Category creation</h1>
 
     {{ form(form) }}
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('customer') }}">
+        <a href="{{ path('admin_category') }}">
             Back to the list
         </a>
+    </li>
+    <li>
+        <p><a href="{{ path('admin') }}">Retour à l'accueil</a></p>
     </li>
 </ul>
 </main>

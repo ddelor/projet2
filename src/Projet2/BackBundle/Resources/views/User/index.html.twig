@@ -14,28 +14,32 @@
                 <th>Password</th>
                 <th>Email</th>
                 <th>Isactive</th>
+                <th>Role</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('admin_user_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.username }}</td>
-                <td>{{ entity.password }}</td>
-                <td>{{ entity.email }}</td>
-                <td>{{ entity.isActive }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('admin_user_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('admin_user_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
+            {% if entity.roles.0 == 'ROLE_USER' %}
+                <tr>
+                    <td><a href="{{ path('admin_user_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td>{{ entity.username }}</td>
+                    <td>{{ entity.password }}</td>
+                    <td>{{ entity.email }}</td>
+                    <td>{{ entity.isActive }}</td>
+                    <td>{{ entity.roles.0 }}</td>
+                    <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_user_show', { 'id': entity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_user_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                    </td>
+                </tr>
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>
@@ -45,6 +49,9 @@
             <a href="{{ path('admin_user_new') }}">
                 Create a new entry
             </a>
+        </li>
+        <li>
+            <p><a href="{{ path('admin') }}">Retour à l'accueil</a></p>
         </li>
     </ul>
 </main>

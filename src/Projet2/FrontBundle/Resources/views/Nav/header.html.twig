@@ -9,6 +9,9 @@
                         <li class="nav_mobile invisible"><a href="{{ path('index') }}">accueil</a></li>
                         <li class="nav_mobile invisible"><a href="{{ path('item') }}">catalogue</a></li>
                         <li class="nav_mobile invisible"><a href="{{ path('user') }}">mon compte</a></li>
+                        {% if is_granted('ROLE_USER') %}
+                        <li class="nav_mobile invisible"><a href="{{ path('logout') }}">Me déconnecter</a></li>
+                        {% endif %}
                         <li class="nav_mobile invisible"><a href="{{ path('panier') }}">mon panier</a></li>
                 </ul>
         </nav>

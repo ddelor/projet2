@@ -12,7 +12,7 @@ use Projet2\BackBundle\Entity\Orders;
 /**
  * Orders controller.
  *
- * @Route("/orders")
+ * @Route("/admin/orders")
  */
 class OrdersController extends Controller
 {
@@ -20,7 +20,7 @@ class OrdersController extends Controller
     /**
      * Lists all Orders entities.
      *
-     * @Route("/", name="orders")
+     * @Route("/", name="admin_orders")
      * @Method("GET")
      * @Template()
      */
@@ -56,4 +56,5 @@ class OrdersController extends Controller
             'entity'      => $entity,
         );
     }
+    
 }

@@ -5,8 +5,14 @@
 {% block main %}
 <main>
         <section>
-            <h1>Votre compte</h1>
-            {{ dump(user) }}
+            <h1>Mon compte</h1>
+            <h2>mes coordonnées :</h2>
+            <p>{{ user.username }}<br>{{ user.email }}</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <h2><a href="{{ path('panier') }}">mon panier</a></h2>
+            <h2><a href="{{ path('orders') }}">mon historique de commandes</a></h2>
+            {#{ dump(user) }#}
 	</section>
 </main>
 {% endblock %}

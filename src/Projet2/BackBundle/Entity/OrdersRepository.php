@@ -12,4 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class OrdersRepository extends EntityRepository
 {
+    /**
+     * Affiche la liste des commandes d'un utilisateur
+     */
+    public function loadOrders($id) {
+        
+        $result = $this ->createQueryBuilder('o')
+                        ->select('o')
+                        ->where('o.userId = :userId')
+                        ->setParameter('userId', $id)
+                        ->getQuery()
+                        ->getResult();
+        return $result;
+    }
 }

@@ -24,7 +24,9 @@
             {% block header %}
                 {% include 'FrontBundle::Nav/header.html.twig' %}
             {% endblock %}
-            {% block main %}{% endblock %}
+            {% block main %}
+                {% block flashbag %}{% endblock %}
+            {% endblock %}
             {% block footer %}
                 {% include 'FrontBundle::Nav/footer.html.twig' %}
             {% endblock %}

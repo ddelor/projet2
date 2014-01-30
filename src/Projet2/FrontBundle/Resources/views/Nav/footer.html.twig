@@ -39,7 +39,9 @@
                         <ul>
                                 <li class="titre">acces privé</li>
                                 <li class="nav_mobile invisible"><a href="{{ path('admin') }}">Administrateur</a></li>
+                                {% if is_granted('ROLE_ADMIN') %}
                                 <li class="nav_mobile invisible"><a href="{{ path('logout') }}">Se déconnecter</a></li>
+                                {% endif %}
                         </ul>
                 </li>
         </ul>

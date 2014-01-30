@@ -13,3 +13,7 @@ front_user:
 front_cart:
     resource:  '@FrontBundle/Controller/CartController.php'
     type: annotation
+
+front_orders:
+    resource:  '@FrontBundle/Controller/OrdersController.php'
+    type: annotation

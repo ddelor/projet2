@@ -12,7 +12,7 @@
             {#{ dump(id) }#}
             <img class="item" src="{{ asset('bundles/front/images/item/' ~ item.img) }}" />
             <div class="itemTexte">
-                <h2>{{ item.name }}</h2>
+                <h2><a href="{{ path('item_detail', {'id' : item.id}) }}">{{ item.name }}</a></h2>
                 <h3>{{ item.category.type }}</h3>
                 <p>{{ item.description }}</p>
             </div>

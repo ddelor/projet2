@@ -790,10 +790,20 @@ blockquote {
 }
 .panier th,
 .panier td {
-    padding-bottom: 1em;
+    padding-top: .7em;
+    padding-bottom: .7em;
     padding-right: 2em;
     text-align: left;
 }
 .panier th {
+    border-bottom: 1px solid black;
+}
+.panier .silver {
+    border-bottom: 1px solid silver;
+}
+.panier th {
+    font-weight: bold;
+}
+.panier .bold {
     font-weight: bold;
 }

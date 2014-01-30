@@ -1,0 +1,14 @@
+{% extends 'FrontBundle::base.html.twig' %}
+
+{% block title %}Votre commande{% endblock %}
+
+{% block main %}
+<main>
+        <section>
+            <h1>Votre Commande a bien été prise en compte</h1>
+            <h2>Récapitulatif de votre commande</h2>
+            <h3 class="bold">Le {{ order.date | date('d/m/Y') }}, vous avez effectué une commande d'un montant total de {{ order.price }} &euro;</h3>
+                          
+	</section>
+</main>
+{% endblock %}

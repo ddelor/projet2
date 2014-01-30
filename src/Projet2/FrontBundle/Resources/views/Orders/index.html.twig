@@ -1,0 +1,35 @@
+{% extends 'FrontBundle::base.html.twig' %}
+
+{% block title %}Votre commande{% endblock %}
+
+{% block main %}
+<main>
+        <section>
+            <h1>Historique de commandes</h1>
+            
+            {#{ dump(ordersList) }#}
+            
+            {% if ordersList is empty %}
+                <p>Aucune commande n'a été sauvegardée.</p>
+            {% else %}
+                <table class="panier">
+                    <tr>
+                        <th>Date</th>
+                        <th>Montant total</th>
+                    </tr>
+                {% for value in ordersList %}
+                    <tr class="silver">
+                        <td>{{ value.date | date('d/m/Y') }}</td>
+                        <td>{{ value.price }} &euro;</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            {% endif %}
+                
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p><a href="{{ path('item') }}">Voir notre catalogue</a></p>
+              
+	</section>
+</main>
+{% endblock %}

@@ -22,8 +22,10 @@ class IndexController extends Controller
         $emItem = $this->getDoctrine()->getRepository('BackBundle:Item');
         $itemList = $emItem->findAll();
         $itemLength = count($itemList);
+        
         $id = rand(0, ($itemLength - 1));
-        $item = $emItem->find($id);
+        
+        $item = $itemList[$id];
         
         return array(
                 'item' => $item

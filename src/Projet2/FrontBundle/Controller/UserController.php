@@ -28,8 +28,9 @@ class UserController extends Controller
     {
         if ($this->get('security.context')->isGranted('ROLE_USER')) {
             
+            $logged_user = $this->get('security.context')->getToken()->getUser()->getId();
             $emUser = $this->getDoctrine()->getRepository('BackBundle:User');
-            $user = $emUser->find(1);
+            $user = $emUser->find($logged_user);
             
             return array('user' => $user);
             

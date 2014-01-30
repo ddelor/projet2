@@ -12,7 +12,6 @@
                 <th>Id</th>
                 <th>Type</th>
                 <th>Description</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -37,11 +36,12 @@
     </table>
 
         <ul>
-        <li>
-            <a href="{{ path('category_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+            <li>
+                <a href="{{ path('category_new') }}">Create a new entry</a>
+            </li>
+            <li>
+                <p><a href="{{ path('admin') }}">Retour à l'accueil</a></p>
+            </li>
+        </ul>
 </main>
     {% endblock %}

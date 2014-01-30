@@ -17,6 +17,7 @@ use Projet2\BackBundle\Entity\Item;
  */
 class CartController extends Controller
 {
+    
     /**
      * Affichage du panier
      * 
@@ -32,7 +33,21 @@ class CartController extends Controller
         return array('panier' => $panier);
     }
     
+    protected $total = 0;
+
+
+    public function totalAction($panier) {
     
+        // calcul du total
+        foreach ($panier as $value) {
+            $this->total += $value['priceT'];                
+        }
+        
+        return $this->total;
+    }
+
+    
+
     /**
      * Ajout d'un produit dans le panier
      * 
@@ -59,7 +74,8 @@ class CartController extends Controller
             if(!$session->has('panier'))
             {
                 $session->set('panier', array(
-                                        'item' => array()                                       
+                                        'item' => array(),
+                                        'total' => 0
                                         )
                             );
             }
@@ -103,8 +119,12 @@ class CartController extends Controller
                 }                
             }
             
+            // calcul du total
+            $panier['total'] = $this->totalAction($panier['item']);
+            
             // je mets à jour le panier
             $session->set('panier', $panier);
+            
  
             // je renvoie le visiteur vers son panier
             return $this->redirect($this->generateUrl('panier'));
@@ -135,9 +155,11 @@ class CartController extends Controller
         // si le produit est déjà dans le panier, j'augmente la quantité
         if (isset($isInArray)) {
             $panier['item'][$position]['qty']++;
+            $panier['item'][$position]['priceT'] = ($panier['item'][$position]['priceU'])*($panier['item'][$position]['qty']);
         }
         
-        //$panier['item'][$id]['qty']++;
+        // calcul du total
+        $panier['total'] = $this->totalAction($panier['item']);
         
         // je mets à jour le panier
         $session->set('panier', $panier);
@@ -168,9 +190,11 @@ class CartController extends Controller
         // si le produit est déjà dans le panier, j'augmente la quantité
         if (isset($isInArray)) {
             $panier['item'][$position]['qty']--;
+            $panier['item'][$position]['priceT'] = ($panier['item'][$position]['priceU'])*($panier['item'][$position]['qty']);
         }
         
-        //$panier['item'][$id]['qty']++;
+        // calcul du total
+        $panier['total'] = $this->totalAction($panier['item']);
         
         // je mets à jour le panier
         $session->set('panier', $panier);
@@ -229,6 +253,9 @@ class CartController extends Controller
                 array_splice($panier['item'], $i, 1);
             }
         }
+        
+        // calcul du total
+        $panier['total'] = $this->totalAction($panier['item']);
         
         // je mets à jour le panier
         $session->set('panier', $panier);

@@ -24,10 +24,11 @@ class Orders
     private $id;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Customer")
-     * @ORM\JoinColumn(name="customer", referencedColumnName="id")
+     * @var integer
+     *
+     * @ORM\Column(name="userId", type="integer")
      */
-    private $customer;
+    private $userId;
 
     /**
      * @var \DateTime
@@ -46,7 +47,7 @@ class Orders
     /**
      * @var string
      *
-     * @ORM\Column(name="ref", type="string", length=20, unique=true)
+     * @ORM\Column(name="ref", type="string", length=20, unique=true, nullable=true)
      */
     private $ref;
 
@@ -131,25 +132,25 @@ class Orders
     }
 
     /**
-     * Set customer
+     * Set userId
      *
-     * @param \Projet2\BackBundle\Entity\Customer $customer
+     * @param integer $userId
      * @return Orders
      */
-    public function setCustomer(\Projet2\BackBundle\Entity\Customer $customer = null)
+    public function setUserId($userId)
     {
-        $this->customer = $customer;
+        $this->userId = $userId;
 
         return $this;
     }
 
     /**
-     * Get customer
+     * Get userId
      *
-     * @return \Projet2\BackBundle\Entity\Customer 
+     * @return integer 
      */
-    public function getCustomer()
+    public function getUserId()
     {
-        return $this->customer;
+        return $this->userId;
     }
 }
